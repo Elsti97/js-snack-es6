@@ -78,7 +78,7 @@ console.log(studenti120);
 
 
 
-// Snack 3
+// ! Snack 3
 // Creare un array di oggetti: Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. Stampare a schermo la bici con peso minore utilizzando destructuring e template literal
 
 let limite = 100;
@@ -113,3 +113,45 @@ let biciLeggera = bici.find(({peso}) => {
 })
 
 document.getElementById('biciMinore').innerHTML = `La bici "${biciLeggera.name}" è quella più leggera: ${biciLeggera.peso} kg`
+
+
+
+// ! Snack4
+// Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti. Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+// Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti. Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+
+let squadre = [
+  {
+      nome: 'Juve',
+      punti: 0,
+      falli: 0,
+  },
+  {
+      nome: 'Milan',
+      punti: 0,
+      falli: 0,
+  },
+  {
+      nome: 'Inter',
+      punti: 0,
+      falli: 0,
+  },{
+    nome: 'Roma',
+    punti: 0,
+    falli: 0,
+  }
+];
+
+function NumCasual(min,max){
+  return parseInt(Math.floor(Math.random() * (max - min + min) + min))
+};
+
+let squadreFalli = squadre.map(({nome, punti, falli}) => {
+  punti = NumCasual(1,80);
+  falli = NumCasual(1,30);
+
+  return {nome, falli};
+})
+
+console.log(squadre);
+console.log(squadreFalli);
